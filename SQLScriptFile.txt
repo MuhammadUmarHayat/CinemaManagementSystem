@@ -1,0 +1,98 @@
+﻿
+CREATE TABLE [dbo].[users] (
+    [email]    NVARCHAR (50)  NOT NULL,
+    [name]     NVARCHAR (50)  NULL,
+    [password] NVARCHAR (50)  NULL,
+    [mobile]   NVARCHAR (50)  NULL,
+    [cnic]     NVARCHAR (50)  NULL,
+    [address]  NVARCHAR (MAX) NULL,
+    [gender]   NVARCHAR (50)  NULL,
+    [status]   NVARCHAR (50)  NULL,
+    PRIMARY KEY CLUSTERED ([email] ASC)
+);
+CREATE TABLE [dbo].[customerPayments] (
+    [Id]           INT           IDENTITY (1, 1) NOT NULL,
+    [name]         NVARCHAR (50) NULL,
+    [cnic]         NVARCHAR (50) NULL,
+    [totalPayment] INT           NULL,
+    [method]       NVARCHAR (50) NULL,
+    [bankName]     NVARCHAR (50) NULL,
+    [accountNo]    NVARCHAR (50) NULL,
+    [csv]          NVARCHAR (50) NULL,
+    [date]         NVARCHAR (50) NULL,
+    [paymentType]  NVARCHAR (50) NULL,
+    PRIMARY KEY CLUSTERED ([Id] ASC)
+);
+
+
+CREATE TABLE [dbo].categories
+(
+	[Id] INT NOT NULL PRIMARY KEY IDENTITY, 
+    [category] NVARCHAR(50) NULL, 
+    [description] NVARCHAR(50) NULL, 
+    [link] NVARCHAR(50) NULL
+)
+
+CREATE TABLE [dbo].[movies] (
+    [Id]            INT            IDENTITY (1, 1) NOT NULL,
+    [title]         NVARCHAR (50)  NULL,
+    [category]      NVARCHAR (50)  NULL,
+    [description]   NVARCHAR (MAX) NULL,
+    [cast]          NVARCHAR (MAX) NULL,
+    [releasingDate] NVARCHAR (50)  NULL,
+    [status]        NVARCHAR (50)  NULL,
+    [link]          NVARCHAR (50)  NULL,
+    [rank]          NVARCHAR (50)  NULL,
+    PRIMARY KEY CLUSTERED ([Id] ASC)
+);
+
+
+CREATE TABLE [dbo].[shows] (
+    [Id]            INT           NOT NULL IDENTITY,
+    [movieTitle]    NVARCHAR (50) NULL,
+    [theatre]       NVARCHAR (50) NULL,
+    [availebleDate] NVARCHAR (50) NULL,
+    [availableTime] NVARCHAR (50) NULL,
+    [seats]         INT           NULL,
+    [status]        NVARCHAR (50) NULL,
+    PRIMARY KEY CLUSTERED ([Id] ASC)
+);
+
+
+CREATE TABLE [dbo].tickets
+(
+	[Id] INT NOT NULL PRIMARY KEY IDENTITY, 
+    [type] NVARCHAR(50) NULL, 
+    [price] NVARCHAR(50) NULL, 
+    [status] NVARCHAR(50) NULL
+)
+CREATE TABLE [dbo].[Seatstatus] (
+    [Id]     INT           IDENTITY (1, 1) NOT NULL,
+    [seatNo] NVARCHAR (50) NULL,
+    [status] NVARCHAR (50) NULL,
+    PRIMARY KEY CLUSTERED ([Id] ASC)
+);
+
+
+
+CREATE TABLE [dbo].[Ticket_Reservations] (
+    [Id]                INT           IDENTITY (1, 1) NOT NULL,
+    [name]              NVARCHAR (50) NULL,
+    [cnic]              NVARCHAR (50) NULL,
+    [mobileNo]          NVARCHAR (50) NULL,
+    [theatre]           NVARCHAR (50) NULL,
+    [ShowTime]          NVARCHAR (50) NULL,
+    [ShowDate]          NVARCHAR (50) NULL,
+    [movieName]         NVARCHAR (50) NULL,
+    [TicketType]        NVARCHAR (50) NULL,
+    [price]             INT           NULL,
+    [totalSeats]        NVARCHAR (50) NULL,
+    [isMember]          NVARCHAR (50) NULL,
+    [seatNumbers]       NVARCHAR (50) NULL,
+    [TotalPayment]      NVARCHAR (50) NULL,
+    [ReservationDate]   NVARCHAR (50) NULL,
+    [status]            NVARCHAR (50) NULL,
+    [isTicketGenerated] NVARCHAR (50) NULL,
+    PRIMARY KEY CLUSTERED ([Id] ASC)
+);
+
